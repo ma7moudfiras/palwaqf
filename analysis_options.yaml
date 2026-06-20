@@ -25,7 +25,6 @@ analyzer:
     - implementation_packs/**
     - packages/**
     - home_new.dart
-    - pwf_home_new_contract.dart
     - test/**
 
     # N2.39: patch packages, source overlays, baseline evidence and handoff artifacts are not active Dart source.

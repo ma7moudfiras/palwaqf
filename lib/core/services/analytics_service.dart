@@ -74,7 +74,7 @@ class AnalyticsService {
   static void logError(String errorName, String errorDetails) {
     try {
       developer.log(
-        '❌ App Error: $errorName',
+        'App Error: $errorName',
         name: 'Analytics',
         error: errorDetails,
       );

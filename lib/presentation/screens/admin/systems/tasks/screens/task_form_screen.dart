@@ -6,6 +6,7 @@ import 'package:waqf/core/services/task_service.dart';
 import 'package:waqf/data/models/task.dart';
 import 'package:waqf/data/models/case.dart';
 import 'package:waqf/data/models/waqf_land.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class TaskFormScreen extends ConsumerStatefulWidget {
   final String? taskId;
@@ -62,7 +63,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
       if (!mounted) return;
       setState(() => _isLoading = false);
     } catch (e) {
-      print('❌ خطأ في تحميل البيانات: $e');
+      debugPrint('❌ خطأ في تحميل البيانات: $e');
       if (mounted) setState(() => _isLoading = false);
     }
   }
@@ -85,113 +86,13 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
   }
 
   Future<void> _loadCases() async {
-    // مؤقتاً: بيانات تجريبية
-    await Future.delayed(const Duration(milliseconds: 500));
-    _cases = [
-      Case(
-        id: 1,
-        caseNumber: '2024/001',
-        title: 'نزاع على أرض وقفية في الخليل',
-        description: 'نزاع بين الورثة على ملكية الأرض',
-        type: CaseType.propertyDispute,
-        status: CaseStatus.inCourt,
-        priority: CasePriority.high,
-        governorate: 'الخليل',
-        plaintiff: const CaseParty(
-          name: 'أحمد محمد',
-          idNumber: '800123456',
-          phoneNumber: '0599123456',
-          address: 'الخليل - باب الزاوية',
-        ),
-        assignedTo: 'مدير القضايا',
-        createdBy: 1,
-        filingDate: DateTime.now().subtract(const Duration(days: 30)),
-        createdAt: DateTime.now().subtract(const Duration(days: 30)),
-        updatedAt: DateTime.now(),
-        attachedDocuments: [],
-        notes: [],
-        activities: [],
-        metadata: {},
-      ),
-      Case(
-        id: 2,
-        caseNumber: '2024/002',
-        title: 'ميراث وقف جامع العمرية',
-        description: 'توزيع إيرادات وقف جامع العمرية',
-        type: CaseType.inheritance,
-        status: CaseStatus.underReview,
-        priority: CasePriority.medium,
-        governorate: 'رام الله',
-        plaintiff: const CaseParty(
-          name: 'وقف جامع العمرية',
-          idNumber: 'WAQF001',
-          phoneNumber: '022298765',
-          address: 'رام الله - وسط البلد',
-        ),
-        assignedTo: 'مدير الأوقاف',
-        createdBy: 1,
-        filingDate: DateTime.now().subtract(const Duration(days: 15)),
-        createdAt: DateTime.now().subtract(const Duration(days: 15)),
-        updatedAt: DateTime.now(),
-        attachedDocuments: [],
-        notes: [],
-        activities: [],
-        metadata: {},
-      ),
-    ];
+    // TODO: تحميل القضايا من قاعدة البيانات
+    _cases = [];
   }
 
   Future<void> _loadWaqfLands() async {
-    // مؤقتاً: بيانات تجريبية
-    await Future.delayed(const Duration(milliseconds: 500));
-    _waqfLands = [
-      WaqfLand(
-        id: 1,
-        referenceNumber: 'WL-2024-001',
-        name: 'أرض وقف الخليل - شارع السلام',
-        description: 'أرض زراعية وقفية',
-        type: LandType.agricultural,
-        status: LandStatus.registered,
-        ownershipType: OwnershipType.waqfKhayri,
-        area: 5000,
-        governorate: 'الخليل',
-        city: 'الخليل',
-        district: 'باب الزاوية',
-        address: 'شارع السلام - مقابل المستشفى',
-        location: const LandLocation(latitude: 31.5326, longitude: 35.0998),
-        documentation: const LandDocumentation(),
-        registeredBy: 'مدير الأوقاف',
-        registrationDate: DateTime.now().subtract(const Duration(days: 365)),
-        createdAt: DateTime.now().subtract(const Duration(days: 365)),
-        updatedAt: DateTime.now(),
-        documents: [],
-        images: [],
-        metadata: {},
-      ),
-      WaqfLand(
-        id: 2,
-        referenceNumber: 'WL-2024-002',
-        name: 'عقار وقف رام الله - وسط البلد',
-        description: 'عقار تجاري وقفي',
-        type: LandType.commercial,
-        status: LandStatus.leased,
-        ownershipType: OwnershipType.waqfKhayri,
-        area: 800,
-        governorate: 'رام الله',
-        city: 'رام الله',
-        district: 'وسط البلد',
-        address: 'وسط البلد - بجانب البلدية',
-        location: const LandLocation(latitude: 31.9029, longitude: 35.2062),
-        documentation: const LandDocumentation(),
-        registeredBy: 'مدير الأوقاف',
-        registrationDate: DateTime.now().subtract(const Duration(days: 180)),
-        createdAt: DateTime.now().subtract(const Duration(days: 180)),
-        updatedAt: DateTime.now(),
-        documents: [],
-        images: [],
-        metadata: {},
-      ),
-    ];
+    // TODO: تحميل أراضي الأوقاف من قاعدة البيانات
+    _waqfLands = [];
   }
 
   Future<void> _saveTask() async {
@@ -217,7 +118,7 @@ class _TaskFormScreenState extends ConsumerState<TaskFormScreen> {
         'progress_percentage': 0,
         'requires_approval': false,
         'followup_required': false,
-        'created_by': 'current_user_id', // TODO: استبدال بمعرف المستخدم الحقيقي
+        'created_by': Supabase.instance.client.auth.currentUser?.id ?? '',
       };
 
       Task? savedTask;

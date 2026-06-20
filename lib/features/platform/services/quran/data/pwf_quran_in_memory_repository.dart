@@ -3,8 +3,7 @@ import 'pwf_quran_repository.dart';
 
 class PwfQuranInMemoryRepository implements PwfQuranRepository {
   static const _reciters = <PwfQuranReciter>[
-    PwfQuranReciter(id: 1, name: 'مشغل تجريبي داخلي'),
-    PwfQuranReciter(id: 2, name: 'قارئ افتراضي'),
+    PwfQuranReciter(id: 1, name: 'القارئ'),
   ];
 
   static const _surahs = <PwfQuranSurah>[

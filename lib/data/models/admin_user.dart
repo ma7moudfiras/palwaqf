@@ -347,7 +347,7 @@ enum UserRole {
   admin('admin', 'مدير وحدة'),
   manager('manager', 'Power Admin / مشرف نظام'),
   employee('employee', 'موظف'),
-  viewer('viewer', 'مشاهد (تجريبي)');
+  viewer('viewer', 'مشاهد');
 
   final String value;
   final String displayName;

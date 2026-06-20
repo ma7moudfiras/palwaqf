@@ -1778,7 +1778,7 @@ class _SearchBarState extends State<_SearchBar> {
                       .onPrivilegeFilterChanged(_AdminUsersPrivilegeFilter.all),
                 ),
                 ChoiceChip(
-                  label: const Text('Superuser'),
+                  label: const Text('مدير النظام'),
                   selected: widget.privilegeFilter ==
                       _AdminUsersPrivilegeFilter.superusers,
                   onSelected: (_) => widget.onPrivilegeFilterChanged(
@@ -5306,7 +5306,7 @@ class _CreateAdminUserDialogState
                                 _isSuperuser = v;
                                 if (v) _selectedUnitId = null;
                               }),
-                      title: const Text('Superuser'),
+                      title: const Text('مدير النظام'),
                     ),
                   ],
                   if (_requiresUnit && (_selectedUnitId ?? '').trim().isEmpty)

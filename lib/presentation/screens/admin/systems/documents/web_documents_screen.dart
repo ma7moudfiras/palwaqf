@@ -578,49 +578,6 @@ class _DocumentsContentState extends ConsumerState<DocumentsContent> {
   }
 
   List<Map<String, dynamic>> _getSampleDocuments() {
-    return [
-      {
-        'name': 'عقد إيجار أرض وقفية.pdf',
-        'category': 'عقود',
-        'type': 'pdf',
-        'size': '2.5 MB',
-        'date': '2024-01-15',
-      },
-      {
-        'name': 'قرار وزاري رقم 123.docx',
-        'category': 'قرارات',
-        'type': 'docx',
-        'size': '1.2 MB',
-        'date': '2024-01-10',
-      },
-      {
-        'name': 'تقرير سنوي 2023.pdf',
-        'category': 'تقارير',
-        'type': 'pdf',
-        'size': '5.8 MB',
-        'date': '2024-01-05',
-      },
-      {
-        'name': 'مراسلة رسمية.docx',
-        'category': 'مراسلات',
-        'type': 'docx',
-        'size': '800 KB',
-        'date': '2024-01-20',
-      },
-      {
-        'name': 'كشف حساب.xlsx',
-        'category': 'تقارير',
-        'type': 'xlsx',
-        'size': '1.5 MB',
-        'date': '2024-01-18',
-      },
-      {
-        'name': 'صورة وثيقة.jpg',
-        'category': 'وثائق رسمية',
-        'type': 'jpg',
-        'size': '3.2 MB',
-        'date': '2024-01-12',
-      },
-    ];
+    return [];
   }
 }

@@ -1,4 +1,5 @@
 // lib/core/services/task_service.dart
+import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:waqf/data/models/task.dart';
 import 'package:waqf/core/database/pwf_database_owner_surfaces.dart';
@@ -20,7 +21,7 @@ class TaskService {
       final data = await query;
       return data.map((json) => _taskFromJson(json)).toList();
     } catch (e) {
-      print('❌ خطأ في جلب المهام: $e');
+      debugPrint('❌ خطأ في جلب المهام: $e');
       return [];
     }
   }
@@ -36,7 +37,7 @@ class TaskService {
 
       return _taskFromJson(data);
     } catch (e) {
-      print('❌ خطأ في جلب المهمة $taskId: $e');
+      debugPrint('❌ خطأ في جلب المهمة $taskId: $e');
       return null;
     }
   }
@@ -52,7 +53,7 @@ class TaskService {
 
       return _taskFromJson(data);
     } catch (e) {
-      print('❌ خطأ في إنشاء المهمة: $e');
+      debugPrint('❌ خطأ في إنشاء المهمة: $e');
       return null;
     }
   }
@@ -69,7 +70,7 @@ class TaskService {
 
       return _taskFromJson(data);
     } catch (e) {
-      print('❌ خطأ في تحديث المهمة $taskId: $e');
+      debugPrint('❌ خطأ في تحديث المهمة $taskId: $e');
       return null;
     }
   }
@@ -83,7 +84,7 @@ class TaskService {
           .eq('id', taskId);
       return true;
     } catch (e) {
-      print('❌ خطأ في حذف المهمة $taskId: $e');
+      debugPrint('❌ خطأ في حذف المهمة $taskId: $e');
       return false;
     }
   }

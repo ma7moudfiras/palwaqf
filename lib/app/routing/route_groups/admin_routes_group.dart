@@ -54,7 +54,7 @@ RouteBase _buildAdminShellRoute(Ref ref) {
         path: AppRoutes.adminDatabaseMigrationLegacyAlias,
         redirect: (context, state) => AppRoutes.adminDatabaseMigration,
       ),
-      ...PwfSisRoutes.routes(),
+      if (kDebugMode) ...PwfSisRoutes.routes(),
       GoRoute(
         path: '/admin/systems/:systemKey',
         builder: (context, state) => PwfDynamicSystemPage(
@@ -481,10 +481,11 @@ RouteBase _buildAdminShellRoute(Ref ref) {
         path: AppRoutes.adminSettings,
         builder: (context, state) => const SettingsScreen(),
       ),
-      GoRoute(
-        path: AppRoutes.adminDeveloper,
-        builder: (context, state) => const DeveloperToolsScreen(),
-      ),
+      if (kDebugMode)
+        GoRoute(
+          path: AppRoutes.adminDeveloper,
+          builder: (context, state) => const DeveloperToolsScreen(),
+        ),
     ],
   );
 }

@@ -62,7 +62,7 @@ class SharedContentMediaUploadHelper {
 
       final url = storage.getPublicUrl(path);
       if (!context.mounted) return null;
-      _showSnack(context, 'تم رفع الملف بنجاح ✅');
+      _showSnack(context, 'تم رفع الملف بنجاح');
       return url;
     } catch (e) {
       if (!context.mounted) return null;

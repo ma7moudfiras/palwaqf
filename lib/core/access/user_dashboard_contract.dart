@@ -328,7 +328,7 @@ class UserDashboardContractBuilder {
       case 'employee':
         return 'موظف';
       default:
-        return 'مشاهد (تجريبي)';
+        return 'مشاهد';
     }
   }
 

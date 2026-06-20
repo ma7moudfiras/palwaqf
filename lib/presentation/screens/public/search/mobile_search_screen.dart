@@ -312,23 +312,8 @@ class _MobileSearchScreenState extends State<MobileSearchScreen> {
   }
 
   List<SearchResult> _getMockResults(String query) {
-    return [
-      SearchResult(
-        title: 'دليل المساجد في فلسطين',
-        description: 'دليل شامل للمساجد في جميع المحافظات الفلسطينية',
-        category: 'mosques',
-      ),
-      SearchResult(
-        title: 'الخدمات الإلكترونية',
-        description: 'احصل على الخدمات الحكومية بطريقة سهلة وسريعة',
-        category: 'services',
-      ),
-      SearchResult(
-        title: 'آخر الأخبار',
-        description: 'تابع آخر الأخبار والتحديثات من الوزارة',
-        category: 'news',
-      ),
-    ];
+    // TODO: Replace with real search API integration
+    return [];
   }
 
   List<String> _getRecentSearches() {

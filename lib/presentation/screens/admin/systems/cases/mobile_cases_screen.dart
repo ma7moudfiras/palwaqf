@@ -408,51 +408,7 @@ class _CasesScreenState extends ConsumerState<MobileCasesScreen> {
     );
   }
 
-  // Sample data
   List<Case> _getSampleCases() {
-    return [
-      Case(
-        id: 1,
-        caseNumber: 'Q-2024-001',
-        title: 'نزاع ملكية أرض وقفية',
-        description: 'نزاع حول ملكية قطعة أرض وقفية في محافظة القدس',
-        type: CaseType.propertyDispute,
-        status: CaseStatus.underReview,
-        priority: CasePriority.high,
-        governorate: 'القدس',
-        plaintiff: const CaseParty(
-          name: 'وزارة الأوقاف',
-          idNumber: '000000000',
-          phoneNumber: '+970-2-2406340',
-          address: 'رام الله',
-        ),
-        filingDate: DateTime.now().subtract(const Duration(days: 15)),
-        assignedTo: 'أحمد محمد',
-        createdBy: 1,
-        createdAt: DateTime.now().subtract(const Duration(days: 15)),
-        updatedAt: DateTime.now().subtract(const Duration(days: 2)),
-      ),
-      Case(
-        id: 2,
-        caseNumber: 'Q-2024-002',
-        title: 'نزاع إيجار',
-        description: 'نزاع بين المستأجر ووزارة الأوقاف حول عقد الإيجار',
-        type: CaseType.leaseDispute,
-        status: CaseStatus.investigation,
-        priority: CasePriority.medium,
-        governorate: 'نابلس',
-        plaintiff: const CaseParty(
-          name: 'محمد خالد',
-          idNumber: '123456789',
-          phoneNumber: '+970-59-1234567',
-          address: 'نابلس',
-        ),
-        filingDate: DateTime.now().subtract(const Duration(days: 30)),
-        assignedTo: 'فاطمة أحمد',
-        createdBy: 1,
-        createdAt: DateTime.now().subtract(const Duration(days: 30)),
-        updatedAt: DateTime.now().subtract(const Duration(days: 5)),
-      ),
-    ];
+    return [];
   }
 }

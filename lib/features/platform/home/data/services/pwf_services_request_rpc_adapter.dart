@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import 'package:waqf/features/platform/public_runtime/domain/pwf_service_center_runtime_source_closure_contract.dart';
 
 class PwfServiceFormOption {
   const PwfServiceFormOption({
@@ -403,7 +402,7 @@ class PwfServicesRequestRpcAdapter {
           .toList(growable: false);
       _emitSourceMarker(
         operation: 'public_forms_rpc_default',
-        surface: PwfServiceCenterRuntimeSourceClosureContract.formsSurface,
+        surface: 'public.rpc_services_forms_public_v1',
         rows: forms.length,
       );
       return forms;
@@ -411,14 +410,14 @@ class PwfServicesRequestRpcAdapter {
       if (_shouldUseFallback(error)) {
         _emitFallbackMarker(
           operation: 'public_forms_rpc_default',
-          surface: PwfServiceCenterRuntimeSourceClosureContract.formsSurface,
+          surface: 'public.rpc_services_forms_public_v1',
           reason: error,
         );
         return PwfServiceFormOption.fallback;
       }
       _emitSourceMarker(
         operation: 'public_forms_rpc_default_error',
-        surface: PwfServiceCenterRuntimeSourceClosureContract.formsSurface,
+        surface: 'public.rpc_services_forms_public_v1',
         ownerRead: false,
         status: 'error',
       );
@@ -440,7 +439,7 @@ class PwfServicesRequestRpcAdapter {
       if (ok && trackingCode.isNotEmpty) {
         _emitSourceMarker(
           operation: 'request_submit_rpc_default',
-          surface: PwfServiceCenterRuntimeSourceClosureContract.submitSurface,
+          surface: 'public.rpc_services_submit_request_v1',
           status: (data['status'] ?? 'received').toString(),
         );
         return PwfServiceRequestSubmitResult(
@@ -455,7 +454,7 @@ class PwfServicesRequestRpcAdapter {
       if (!ok) {
         _emitSourceMarker(
           operation: 'request_submit_rpc_rejected',
-          surface: PwfServiceCenterRuntimeSourceClosureContract.submitSurface,
+          surface: 'public.rpc_services_submit_request_v1',
           status: (data['status'] ?? 'rejected').toString(),
         );
         return PwfServiceRequestSubmitResult(
@@ -471,7 +470,7 @@ class PwfServicesRequestRpcAdapter {
       if (_shouldUseFallback(error)) {
         _emitFallbackMarker(
           operation: 'request_submit_rpc_default',
-          surface: PwfServiceCenterRuntimeSourceClosureContract.submitSurface,
+          surface: 'public.rpc_services_submit_request_v1',
           reason: error,
         );
         return PwfServiceRequestSubmitResult(
@@ -484,7 +483,7 @@ class PwfServicesRequestRpcAdapter {
       }
       _emitSourceMarker(
         operation: 'request_submit_rpc_default_error',
-        surface: PwfServiceCenterRuntimeSourceClosureContract.submitSurface,
+        surface: 'public.rpc_services_submit_request_v1',
         ownerRead: false,
         status: 'error',
       );
@@ -498,7 +497,7 @@ class PwfServicesRequestRpcAdapter {
 
     _emitSourceMarker(
       operation: 'request_submit_rpc_empty_result',
-      surface: PwfServiceCenterRuntimeSourceClosureContract.submitSurface,
+      surface: 'public.rpc_services_submit_request_v1',
       ownerRead: false,
       status: 'rejected',
     );
@@ -527,7 +526,7 @@ class PwfServicesRequestRpcAdapter {
       if (rows.isEmpty) {
         _emitSourceMarker(
           operation: 'request_tracking_rpc_not_found',
-          surface: PwfServiceCenterRuntimeSourceClosureContract.trackingSurface,
+          surface: 'public.rpc_services_track_request_public_v1',
           rows: 0,
           status: 'not_found',
         );
@@ -538,7 +537,7 @@ class PwfServicesRequestRpcAdapter {
       );
       _emitSourceMarker(
         operation: 'request_tracking_rpc_default',
-        surface: PwfServiceCenterRuntimeSourceClosureContract.trackingSurface,
+        surface: 'public.rpc_services_track_request_public_v1',
         rows: rows.length,
         status: tracked.status,
       );
@@ -547,14 +546,14 @@ class PwfServicesRequestRpcAdapter {
       if (_shouldUseFallback(error)) {
         _emitFallbackMarker(
           operation: 'request_tracking_rpc_default',
-          surface: PwfServiceCenterRuntimeSourceClosureContract.trackingSurface,
+          surface: 'public.rpc_services_track_request_public_v1',
           reason: error,
         );
         return PwfServiceRequestTrackingResult.fallback(normalized);
       }
       _emitSourceMarker(
         operation: 'request_tracking_rpc_default_error',
-        surface: PwfServiceCenterRuntimeSourceClosureContract.trackingSurface,
+        surface: 'public.rpc_services_track_request_public_v1',
         ownerRead: false,
         status: 'error',
       );
@@ -580,7 +579,7 @@ class PwfServicesRequestRpcAdapter {
           .toList(growable: false);
       _emitSourceMarker(
         operation: 'admin_queue_rpc_default',
-        surface: PwfServiceCenterRuntimeSourceClosureContract.adminQueueSurface,
+        surface: 'public.rpc_services_admin_request_queue_v1',
         rows: items.length,
       );
       return items;
@@ -589,14 +588,14 @@ class PwfServicesRequestRpcAdapter {
         _emitFallbackMarker(
           operation: 'admin_queue_rpc_default',
           surface:
-              PwfServiceCenterRuntimeSourceClosureContract.adminQueueSurface,
+              'public.rpc_services_admin_request_queue_v1',
           reason: error,
         );
         return PwfServiceRequestQueueItem.fallback;
       }
       _emitSourceMarker(
         operation: 'admin_queue_rpc_default_error',
-        surface: PwfServiceCenterRuntimeSourceClosureContract.adminQueueSurface,
+        surface: 'public.rpc_services_admin_request_queue_v1',
         ownerRead: false,
         status: 'error',
       );
@@ -625,7 +624,7 @@ class PwfServicesRequestRpcAdapter {
       _emitSourceMarker(
         operation: 'admin_transition_rpc_default',
         surface:
-            PwfServiceCenterRuntimeSourceClosureContract.adminTransitionSurface,
+            'public.rpc_services_admin_transition_request_v1',
         status: success
             ? (data['status'] ?? 'transitioned').toString()
             : 'rejected',
@@ -641,7 +640,7 @@ class PwfServicesRequestRpcAdapter {
       _emitSourceMarker(
         operation: 'admin_transition_rpc_default_error',
         surface:
-            PwfServiceCenterRuntimeSourceClosureContract.adminTransitionSurface,
+            'public.rpc_services_admin_transition_request_v1',
         ownerRead: false,
         status: 'error',
       );
@@ -660,10 +659,10 @@ class PwfServicesRequestRpcAdapter {
     String? status,
   }) {
     debugPrint(
-      '${PwfServiceCenterRuntimeSourceClosureContract.sourceMarker} '
+      '${'PWF_SERVICE_CENTER_RUNTIME_SOURCE'} '
       'operation=$operation owner_read=$ownerRead surface=$surface '
       'rows=${rows ?? '-'} status=${status ?? '-'} '
-      'decision=${PwfServiceCenterRuntimeSourceClosureContract.ownerReadDecision}',
+      'decision=${'platform-services-rpc-default-runtime-source'}',
     );
   }
 
@@ -674,10 +673,10 @@ class PwfServicesRequestRpcAdapter {
   }) {
     final normalizedReason = _fallbackReason(reason);
     debugPrint(
-      '${PwfServiceCenterRuntimeSourceClosureContract.fallbackMarker} '
+      '${'PWF_SERVICE_CENTER_LEGACY_FALLBACK_ONLY'} '
       'operation=$operation fallback=true surface=$surface '
       'reason=$normalizedReason '
-      'decision=${PwfServiceCenterRuntimeSourceClosureContract.fallbackDecision}',
+      'decision=${'fallback-only-when-platform-services-rpc-missing-or-development-preview'}',
     );
   }
 

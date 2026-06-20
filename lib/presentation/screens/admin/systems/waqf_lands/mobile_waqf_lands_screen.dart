@@ -344,29 +344,6 @@ class _WaqfLandsScreenState extends ConsumerState<MobileWaqfLandsScreen> {
   }
 
   List<WaqfLand> _getSampleLands() {
-    return [
-      WaqfLand(
-        id: 1,
-        referenceNumber: 'WL-2024-001',
-        name: 'أرض وقف المسجد الكبير',
-        type: LandType.residential,
-        status: LandStatus.registered,
-        ownershipType: OwnershipType.waqfKhayri,
-        area: 5000,
-        governorate: 'القدس',
-        city: 'القدس',
-        district: 'البلدة القديمة',
-        address: 'بالقرب من المسجد الأقصى',
-        location: const LandLocation(latitude: 31.7767, longitude: 35.2345),
-        documentation: const LandDocumentation(
-          deedNumber: '12345',
-          hasOfficialDocuments: true,
-        ),
-        registrationDate: DateTime.now().subtract(const Duration(days: 365)),
-        registeredBy: 'أحمد محمد',
-        createdAt: DateTime.now(),
-        updatedAt: DateTime.now(),
-      ),
-    ];
+    return [];
   }
 }

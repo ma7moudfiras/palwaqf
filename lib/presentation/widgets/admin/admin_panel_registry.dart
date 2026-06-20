@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 
 import '../../../app/routing/app_routes.dart';
@@ -791,7 +792,7 @@ class AdminPanelRegistry {
     ],
   );
 
-  static const governanceAuditGroup = AdminPanelGroup(
+  static final governanceAuditGroup = AdminPanelGroup(
     id: 'governance',
     title: 'الحوكمة والتدقيق',
     subtitle:
@@ -835,29 +836,31 @@ class AdminPanelRegistry {
         route: AppRoutes.adminCrossSystemContracts,
         icon: Icons.account_tree_outlined,
       ),
-      AdminPanelEntry(
-        label: 'أدوات المطور',
-        description:
-            'تشخيص المسارات وأسماء الصفحات ومتابعة TODO التطوير التشغيلي بعد استقرار التحليل.',
-        route: AppRoutes.adminDeveloper,
-        icon: Icons.developer_mode_rounded,
-      ),
+      if (kDebugMode)
+        AdminPanelEntry(
+          label: 'أدوات المطور',
+          description:
+              'تشخيص المسارات وأسماء الصفحات ومتابعة TODO التطوير التشغيلي بعد استقرار التحليل.',
+          route: AppRoutes.adminDeveloper,
+          icon: Icons.developer_mode_rounded,
+        ),
     ],
   );
 
-  static const developerGroup = AdminPanelGroup(
+  static final developerGroup = AdminPanelGroup(
     id: 'developer',
     title: 'المطور',
     subtitle:
         'أدوات صيانة وتشخيص للمطور، تشمل إظهار أسماء الصفحات ومساراتها عبر النظام لتسهيل تتبع الأخطاء.',
     items: [
-      AdminPanelEntry(
-        label: 'أدوات المطور',
-        description:
-            'تشغيل وضع الصيانة وإظهار أسماء الصفحات والمسارات وسجل التطوير التشغيلي الحالي.',
-        route: AppRoutes.adminDeveloper,
-        icon: Icons.developer_mode_rounded,
-      ),
+      if (kDebugMode)
+        AdminPanelEntry(
+          label: 'أدوات المطور',
+          description:
+              'تشغيل وضع الصيانة وإظهار أسماء الصفحات والمسارات وسجل التطوير التشغيلي الحالي.',
+          route: AppRoutes.adminDeveloper,
+          icon: Icons.developer_mode_rounded,
+        ),
     ],
   );
 
@@ -1007,7 +1010,7 @@ class AdminPanelRegistry {
     developerGroup,
   ];
 
-  static const groupEntrySections = <String, List<AdminPanelEntrySection>>{
+  static final groupEntrySections = <String, List<AdminPanelEntrySection>>{
     'surfaces_services': [
       AdminPanelEntrySection(
         title: 'إدارة خدمات الجمهور',
@@ -1183,11 +1186,12 @@ class AdminPanelRegistry {
           AppRoutes.adminCrossSystemContracts,
         ],
       ),
-      AdminPanelEntrySection(
-        title: 'الصيانة والتشخيص',
-        icon: Icons.developer_mode_rounded,
-        routes: [AppRoutes.adminDeveloper],
-      ),
+      if (kDebugMode)
+        AdminPanelEntrySection(
+          title: 'الصيانة والتشخيص',
+          icon: Icons.developer_mode_rounded,
+          routes: [AppRoutes.adminDeveloper],
+        ),
     ],
   };
 
@@ -1241,7 +1245,7 @@ class AdminPanelRegistry {
   }
 
   static List<AdminPanelEntry> quickAccessForPlatformPages() {
-    return const [
+    return [
       AdminPanelEntry(
         label: 'بوابة إدارة المنصة',
         description: 'العودة إلى تنظيم الحوكمة والإعدادات العامة.',
@@ -1272,12 +1276,13 @@ class AdminPanelRegistry {
         route: AppRoutes.adminDashboard,
         icon: Icons.dashboard_customize_outlined,
       ),
-      AdminPanelEntry(
-        label: 'أدوات المطور',
-        description: 'إظهار أسماء الصفحات ومساراتها وتشخيص التنقل الإداري.',
-        route: AppRoutes.adminDeveloper,
-        icon: Icons.developer_mode_rounded,
-      ),
+      if (kDebugMode)
+        AdminPanelEntry(
+          label: 'أدوات المطور',
+          description: 'إظهار أسماء الصفحات ومساراتها وتشخيص التنقل الإداري.',
+          route: AppRoutes.adminDeveloper,
+          icon: Icons.developer_mode_rounded,
+        ),
     ];
   }
 

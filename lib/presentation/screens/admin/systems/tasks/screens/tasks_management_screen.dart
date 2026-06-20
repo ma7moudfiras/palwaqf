@@ -33,7 +33,7 @@ class _TasksManagementScreenState extends ConsumerState<TasksManagementScreen> {
       if (!mounted) return;
       setState(() => _tasks = tasks);
     } catch (e) {
-      print('Error loading tasks: $e');
+      debugPrint('Error loading tasks: $e');
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,

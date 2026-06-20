@@ -114,13 +114,13 @@ class SharedContentPublicationFields extends StatelessWidget {
               FilterChip(
                 selected: isFeatured,
                 onSelected: onFeaturedChanged,
-                label: const Text('Featured / مميز'),
+                label: const Text('مميز'),
                 avatar: const Icon(Icons.auto_awesome_rounded, size: 18),
               ),
               FilterChip(
                 selected: isPinned,
                 onSelected: onPinnedChanged,
-                label: const Text('Pinned / مثبت'),
+                label: const Text('مثبت'),
                 avatar: const Icon(Icons.push_pin_rounded, size: 18),
               ),
             ],
