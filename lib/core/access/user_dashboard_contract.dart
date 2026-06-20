@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart' show kDebugMode;
+
 import '../../app/routing/app_routes.dart';
 import '../../data/models/admin_user.dart';
 import '../enums/permission.dart';
@@ -178,21 +180,22 @@ class UserDashboardContractBuilder {
     final adminTools = <UserDashboardAdminTool>[];
     switch (policyRoleKey) {
       case 'superuser':
-        adminTools.addAll(const [
-          UserDashboardAdminTool(
+        adminTools.addAll([
+          const UserDashboardAdminTool(
             title: 'إدارة المستخدمين',
             subtitle: 'إدارة كل المستخدمين والوحدات والأنظمة على مستوى المنصة.',
             route: AppRoutes.adminUsers,
             systemKey: SystemKey.platformAdmin,
           ),
-          UserDashboardAdminTool(
-            title: 'الأنظمة والحوكمة',
-            subtitle:
-                'مراجعة الحوكمة والسياسات وأدوات المطور على مستوى المنصة.',
-            route: AppRoutes.adminDeveloper,
-            systemKey: SystemKey.platformAdmin,
-          ),
-          UserDashboardAdminTool(
+          if (kDebugMode)
+            const UserDashboardAdminTool(
+              title: 'الأنظمة والحوكمة',
+              subtitle:
+                  'مراجعة الحوكمة والسياسات وأدوات المطور على مستوى المنصة.',
+              route: AppRoutes.adminDeveloper,
+              systemKey: SystemKey.platformAdmin,
+            ),
+          const UserDashboardAdminTool(
             title: 'التقارير المركزية',
             subtitle: 'تقارير المنصة والمؤشرات الشاملة لكل الوحدات والأنظمة.',
             route: AppRoutes.adminReports,
