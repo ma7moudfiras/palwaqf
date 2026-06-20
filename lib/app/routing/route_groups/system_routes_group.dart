@@ -8,7 +8,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: AppRoutes.mustakshif,
-          redirect: (context, state) => AppRoutes.adminDashboard,
+          redirect: (context, state) =>
+              state.matchedLocation == AppRoutes.mustakshif
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',
@@ -49,7 +52,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: AppRoutes.adminData,
-          redirect: (context, state) => AppRoutes.adminDashboard,
+          redirect: (context, state) =>
+              state.matchedLocation == AppRoutes.adminData
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',
@@ -90,7 +96,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: AppRoutes.lands,
-          redirect: (context, state) => AppRoutes.adminDashboard,
+          redirect: (context, state) =>
+              state.matchedLocation == AppRoutes.lands
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',
@@ -131,7 +140,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: AppRoutes.properties,
-          redirect: (context, state) => AppRoutes.adminDashboard,
+          redirect: (context, state) =>
+              state.matchedLocation == AppRoutes.properties
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',
@@ -172,7 +184,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: AppRoutes.cases,
-          redirect: (context, state) => AppRoutes.adminDashboard,
+          redirect: (context, state) =>
+              state.matchedLocation == AppRoutes.cases
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',

@@ -998,7 +998,7 @@ class AdminPanelRegistry {
   static List<AdminGovernedSystem> get connectedSystems =>
       governedSystemsByTier(AdminGovernanceTier.connectedSystem);
 
-  static const orderedGroups = <AdminPanelGroup>[
+  static final orderedGroups = <AdminPanelGroup>[
     mainGroup,
     publicGroup,
     surfacesServicesGroup,
@@ -1007,7 +1007,7 @@ class AdminPanelRegistry {
     platformGroup,
     systemsGroup,
     governanceAuditGroup,
-    developerGroup,
+    if (kDebugMode) developerGroup,
   ];
 
   static final groupEntrySections = <String, List<AdminPanelEntrySection>>{
@@ -1227,9 +1227,9 @@ class AdminPanelRegistry {
       case 'systems':
         return const [systemsGroup];
       case 'governance':
-        return const [governanceAuditGroup];
+        return [governanceAuditGroup];
       case 'developer':
-        return const [developerGroup];
+        return [developerGroup];
       case 'main':
       default:
         return const [mainGroup];
