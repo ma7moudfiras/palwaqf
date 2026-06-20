@@ -285,7 +285,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: '/mosques-system',
-          redirect: (context, state) => AppRoutes.adminDashboard,
+          redirect: (context, state) =>
+              state.matchedLocation == '/mosques-system'
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',
@@ -326,7 +329,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: AppRoutes.billing,
-          redirect: (context, state) => AppRoutes.adminDashboard,
+          redirect: (context, state) =>
+              state.matchedLocation == AppRoutes.billing
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',
