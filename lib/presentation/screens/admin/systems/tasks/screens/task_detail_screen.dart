@@ -36,7 +36,7 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
         _isLoading = false;
       });
     } catch (e) {
-      print('❌ خطأ في تحميل تفاصيل المهمة: $e');
+      debugPrint('❌ خطأ في تحميل تفاصيل المهمة: $e');
       if (!mounted) return;
       ScaffoldMessenger.of(
         context,
@@ -133,7 +133,7 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
         );
       }
     } catch (e) {
-      print('❌ خطأ في تحديث حالة المهمة: $e');
+      debugPrint('❌ خطأ في تحديث حالة المهمة: $e');
     }
   }
 
@@ -441,7 +441,6 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
                           trailing: const Icon(Icons.chevron_right),
                           onTap: () {
                             // TODO: التنقل إلى تفاصيل القضية
-                            print('انتقال إلى القضية: ${task.caseId}');
                           },
                         ),
                       if (task.isLinkedToWaqfLand)
@@ -457,9 +456,6 @@ class _TaskDetailScreenState extends ConsumerState<TaskDetailScreen> {
                           trailing: const Icon(Icons.chevron_right),
                           onTap: () {
                             // TODO: التنقل إلى تفاصيل الأرض الوقفية
-                            print(
-                              'انتقال إلى الأرض الوقفية: ${task.waqfLandId}',
-                            );
                           },
                         ),
                     ],

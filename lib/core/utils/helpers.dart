@@ -358,16 +358,6 @@ class Helpers {
     return Color.fromRGBO(r, g, b, 1.0);
   }
 
-  // Validate network connection
-  static Future<bool> hasNetworkConnection() async {
-    try {
-      // This is a simple check - in a real app, you'd use connectivity_plus
-      return true; // Placeholder
-    } catch (e) {
-      return false;
-    }
-  }
-
   // Show network error dialog
   static void showNetworkError(BuildContext context) {
     showDialog(

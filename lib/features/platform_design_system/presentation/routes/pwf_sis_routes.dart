@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:go_router/go_router.dart';
 import '../pages/pwf_sis_platform_admin_adoption_page.dart';
 import '../pages/pwf_sis_media_center_low_risk_adoption_page.dart';
@@ -35,6 +36,7 @@ class PwfSisRoutes {
       PwfSisWave2MediaLibraryPilotPage.routePath;
 
   static List<GoRoute> routes() {
+    if (!kDebugMode) return [];
     return [
       GoRoute(
         path: designSystem,

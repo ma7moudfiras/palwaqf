@@ -193,7 +193,7 @@ class _LangBtnState extends State<_LangBtn> {
               content: Text(
                 widget.active
                     ? 'اللغة العربية مفعلة حالياً'
-                    : 'سيتم دعم التبديل إلى الإنجليزية قريباً',
+                    : 'اللغة الإنجليزية غير متوفرة حالياً',
               ),
             ),
           );

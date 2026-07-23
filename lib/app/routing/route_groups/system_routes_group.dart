@@ -8,8 +8,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: AppRoutes.mustakshif,
-          builder: (context, state) =>
-              const SystemDashboardPlaceholder(systemKey: SystemKey.mustakshif),
+          redirect: (context, state) =>
+              state.matchedLocation == AppRoutes.mustakshif
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',
@@ -50,8 +52,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: AppRoutes.adminData,
-          builder: (context, state) =>
-              const SystemDashboardPlaceholder(systemKey: SystemKey.adminData),
+          redirect: (context, state) =>
+              state.matchedLocation == AppRoutes.adminData
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',
@@ -92,8 +96,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: AppRoutes.lands,
-          builder: (context, state) =>
-              const SystemDashboardPlaceholder(systemKey: SystemKey.lands),
+          redirect: (context, state) =>
+              state.matchedLocation == AppRoutes.lands
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',
@@ -134,8 +140,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: AppRoutes.properties,
-          builder: (context, state) =>
-              const SystemDashboardPlaceholder(systemKey: SystemKey.properties),
+          redirect: (context, state) =>
+              state.matchedLocation == AppRoutes.properties
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',
@@ -176,8 +184,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: AppRoutes.cases,
-          builder: (context, state) =>
-              const SystemDashboardPlaceholder(systemKey: SystemKey.cases),
+          redirect: (context, state) =>
+              state.matchedLocation == AppRoutes.cases
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',
@@ -275,8 +285,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: '/mosques-system',
-          builder: (context, state) =>
-              const SystemDashboardPlaceholder(systemKey: SystemKey.mosques),
+          redirect: (context, state) =>
+              state.matchedLocation == '/mosques-system'
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',
@@ -317,8 +329,10 @@ List<RouteBase> _buildSystemShellRoutes() {
       routes: [
         GoRoute(
           path: AppRoutes.billing,
-          builder: (context, state) =>
-              const SystemDashboardPlaceholder(systemKey: SystemKey.billing),
+          redirect: (context, state) =>
+              state.matchedLocation == AppRoutes.billing
+                  ? AppRoutes.adminDashboard
+                  : null,
           routes: [
             GoRoute(
               path: 'news',

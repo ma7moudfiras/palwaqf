@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../pwf_home_new_contract.dart' show PwfLocalStorageKeys;
 
 enum PwfThemeKey { islamic, light, dark }
 
@@ -48,10 +47,10 @@ class PwfUiPrefsController extends StateNotifier<PwfUiPrefsState> {
 
   SharedPreferences? _prefs;
 
-  static const _kTheme = PwfLocalStorageKeys.theme;
-  static const _kFont = PwfLocalStorageKeys.fontSize;
-  static const _kContrast = PwfLocalStorageKeys.highContrast;
-  static const _kRead = PwfLocalStorageKeys.readMode;
+  static const _kTheme = 'pwf_theme';
+  static const _kFont = 'pwf_fontSize';
+  static const _kContrast = 'pwf_highContrast';
+  static const _kRead = 'pwf_readMode';
 
   Future<void> _init() async {
     try {

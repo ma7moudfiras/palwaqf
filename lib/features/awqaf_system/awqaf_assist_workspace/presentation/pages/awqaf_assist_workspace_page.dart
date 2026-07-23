@@ -29,7 +29,7 @@ class AwqafAssistWorkspacePage extends ConsumerWidget {
             _SectionCard(
               icon: Icons.assistant_outlined,
               title: 'مساحة أوقاف أسيست التشغيلية',
-              subtitle: 'إصدار تجريبي للقراءة والاستدلال فقط.',
+              subtitle: 'للقراءة والاستدلال فقط.',
               children: const [
                 _Bullet(
                   'يعرض مؤشرات تشغيلية وإرشادية مرتبطة بسجلات المصدر ومسارات أوقاف سيستم.',

@@ -24,10 +24,10 @@ class PwfSisAwqafSystemPilotPage extends StatelessWidget {
         padding: EdgeInsets.all(compact ? 16 : 24),
         children: [
           PwfSisSystemHero(
-            kicker: 'Awqaf System Pilot',
+            kicker: 'النظام التجريبي',
             title: 'أوقاف سيستم وفق PWF-SIS',
             description:
-                'نموذج hardening لاختبار نظام الواجهات السيادي دون تغيير routing أو RBAC أو waqf_assets. هذا Pilot بصري/تشغيلي تجريبي فقط.',
+                'نموذج تقوية لاختبار نظام الواجهات السيادي دون تغيير التوجيه أو صلاحيات الوصول أو أصول الوقف. هذا نموذج بصري وتشغيلي فقط.',
             actions: [
               FilledButton.icon(
                 onPressed: () {},

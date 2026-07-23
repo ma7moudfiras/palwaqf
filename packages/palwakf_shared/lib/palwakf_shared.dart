@@ -1,8 +1,6 @@
 export 'access/access_profile.dart';
 export 'access/access_repository.dart';
 
-export 'contracts/pwf_home_new_contract.dart';
-
 export 'enums/system_key.dart';
 export 'enums/user_role.dart';
 export 'enums/permission.dart';

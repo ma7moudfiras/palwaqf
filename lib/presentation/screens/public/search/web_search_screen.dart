@@ -547,72 +547,8 @@ class _WebSearchScreenState extends State<WebSearchScreen> {
   }
 
   List<SearchResult> _getMockResults(String query) {
-    // All available results
-    final allResults = [
-      SearchResult(
-        title: 'دليل المساجد في فلسطين',
-        description:
-            'دليل شامل للمساجد في جميع المحافظات الفلسطينية مع معلومات تفصيلية عن كل مسجد',
-        category: 'mosques',
-      ),
-      SearchResult(
-        title: 'مسجد الأقصى المبارك',
-        description: 'أولى القبلتين وثالث الحرمين الشريفين في القدس المحتلة',
-        category: 'mosques',
-      ),
-      SearchResult(
-        title: 'الخدمات الإلكترونية',
-        description:
-            'احصل على الخدمات الحكومية بطريقة سهلة وسريعة من خلال البوابة الإلكترونية',
-        category: 'services',
-      ),
-      SearchResult(
-        title: 'خدمة حجز موعد',
-        description: 'احجز موعدك لمراجعة الوزارة بكل سهولة',
-        category: 'services',
-      ),
-      SearchResult(
-        title: 'آخر الأخبار والإعلانات',
-        description: 'تابع آخر الأخبار والتحديثات والإعلانات الهامة من الوزارة',
-        category: 'news',
-      ),
-      SearchResult(
-        title: 'افتتاح مسجد جديد في رام الله',
-        description: 'تم افتتاح مسجد جديد في حي الطيرة بحضور معالي الوزير',
-        category: 'news',
-      ),
-      SearchResult(
-        title: 'الأنشطة والفعاليات القادمة',
-        description: 'تعرف على الأنشطة والفعاليات التي تنظمها الوزارة',
-        category: 'activities',
-      ),
-      SearchResult(
-        title: 'دورة تدريبية لأئمة المساجد',
-        description: 'دورة متخصصة في فن الخطابة والإلقاء',
-        category: 'activities',
-      ),
-      SearchResult(
-        title: 'وثائق الوزارة',
-        description: 'الوثائق والتقارير الرسمية الصادرة عن الوزارة',
-        category: 'documents',
-      ),
-    ];
-
-    // Filter by category if not 'all'
-    var filteredResults = _selectedCategory == 'all'
-        ? allResults
-        : allResults
-              .where((result) => result.category == _selectedCategory)
-              .toList();
-
-    // Filter by search query (case insensitive search in title and description)
-    filteredResults = filteredResults.where((result) {
-      final searchLower = query.toLowerCase();
-      return result.title.toLowerCase().contains(searchLower) ||
-          result.description.toLowerCase().contains(searchLower);
-    }).toList();
-
-    return filteredResults;
+    // TODO: Replace with real search API integration
+    return [];
   }
 
   String _getCategoryName(String category) {

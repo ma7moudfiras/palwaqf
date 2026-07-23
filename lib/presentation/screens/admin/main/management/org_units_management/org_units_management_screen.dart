@@ -110,7 +110,7 @@ class OrgUnitsManagementScreen extends ConsumerWidget {
                             columns: const [
                               DataColumn(label: Text('الاسم')),
                               DataColumn(label: Text('الكود')),
-                              DataColumn(label: Text('Slug')),
+                              DataColumn(label: Text('المعرّف')),
                               DataColumn(label: Text('النوع')),
                               DataColumn(label: Text('نشط')),
                               DataColumn(label: Text('إجراء')),
